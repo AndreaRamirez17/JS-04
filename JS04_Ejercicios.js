@@ -98,6 +98,20 @@ console.log(onlineStatus(usuarios));
  * - `arrayMultiplos(2, 10)` debería devolver `[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]` .
  * - `arrayMultiplos(17, 6)` debería devolver `[17, 34, 51, 68, 85, 102]` .
  */
+let long=10;
+let multiplo=2;
+function arrayMultiplos(numero, longitud) {
+    const array = [];
+    let multiplo = numero;
+
+    // Generar la matriz de longitud deseada con múltiplos del número base
+    for (let i = 0; i < longitud; i++) {
+        array.push(multiplo);
+        multiplo += numero;
+    }
+    return array;
+}
+console.log(arrayMultiplos(multiplo, long)); 
 //------------------------------------------------
 /**
  * Dominio positivo en Array
@@ -106,6 +120,21 @@ console.log(onlineStatus(usuarios));
  * Ejemplo:
  * - `positiveDom([-1, -3, -5, 4, 6767])` debería devolver `falso` 
  */
+let dominio=[-1, -3, -5, 4, 6767];
+function positiveDom(arr) {
+    let countPositive = 0;
+    
+    // Contar los elementos positivos en la matriz
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            countPositive++;
+        }
+    }
+    
+    // Determinar si la cantidad de elementos positivos es mayor que la mitad de la longitud de la matriz
+    return countPositive > arr.length / 2;
+}
+console.log(positiveDom(dominio)); 
 //------------------------------------------------
 /**
  * Promedio antípoda
@@ -116,3 +145,18 @@ console.log(onlineStatus(usuarios));
  * Ejemplo:
  * - Para la matriz `[1,2,3,5,22,6]` , el resultado debe ser `[3.5, 12, 4]` .
  */
+let matriz=[1,2,3,5,22,6];
+function promedioAntipoda(matriz2){
+    let tamaño=matriz2.length;
+    let medio=Math.floor(tamaño/2);
+    if (tamaño % 2 !== 0){
+        matriz2.splice(medio,1);
+    }
+    let resultado=[];
+    for (let i=0;i<medio;i++){
+        let suma=matriz2[i]+matriz2[matriz2.length-1-i];
+        resultado.push(suma/2);
+    }
+    return resultado;
+}
+console.log(promedioAntipoda(matriz));
